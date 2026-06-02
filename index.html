@@ -323,6 +323,127 @@
     .mock-btn.ghost { background: #fff; border: 1px solid var(--border); color: var(--text); }
     .mock-btn.solid { background: var(--danger); color: #fff; }
 
+    /* ===== 통화 디펜더 화면 목업 (CSS/SVG · 더미 데이터만 · raster 흐림 없음) ===== */
+    /* 다크 네이비 화면 + 글로우 위험도 카드 — 핵심 "보이스피싱 매우 위험"이 크게 읽히도록 */
+    .cd-screen { background: #0B1640 !important; }
+    .cd-app {
+      width: 100%; height: 100%; padding: 13% 8.5% 8.5%;
+      display: flex; flex-direction: column; gap: 9px;
+      color: #EAF0FF; letter-spacing: -0.01em;
+      background:
+        radial-gradient(120% 70% at 50% -10%, rgba(79, 128, 255, 0.18), transparent 60%),
+        linear-gradient(180deg, #0E1A4A 0%, #0A1238 100%);
+      container-type: inline-size;
+    }
+    .cd-head { display: flex; align-items: center; gap: 6px; }
+    .cd-head .cd-brand {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-weight: 800; font-size: 11px; color: #fff;
+    }
+    .cd-head .cd-brand svg { width: 14px; height: 14px; color: var(--brand-glow); }
+    .cd-head .cd-state {
+      margin-left: auto; display: inline-flex; align-items: center; gap: 5px;
+      font-weight: 700; font-size: 8.5px; color: #BFD0FF;
+      background: rgba(79, 128, 255, 0.14); border: 1px solid rgba(79, 128, 255, 0.28);
+      padding: 3px 8px; border-radius: 999px;
+    }
+    .cd-state .cd-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--brand-glow); flex: none; }
+
+    /* 통화 감지 카드 */
+    .cd-call {
+      display: flex; align-items: center; gap: 9px;
+      background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.10);
+      border-radius: 13px; padding: 9px 11px;
+    }
+    .cd-call .cd-avatar {
+      width: 30px; height: 30px; border-radius: 50%; flex: none;
+      display: grid; place-items: center; color: #BFD0FF;
+      background: rgba(79, 128, 255, 0.16);
+    }
+    .cd-call .cd-avatar svg { width: 15px; height: 15px; }
+    .cd-call .cd-num { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+    .cd-call .cd-num b { font-family: var(--num); font-weight: 700; font-size: 13px; color: #fff; letter-spacing: 0.01em; }
+    .cd-call .cd-num small { font-size: 8.5px; color: #9DB0E6; font-weight: 600; }
+    .cd-call .cd-dur { margin-left: auto; font-family: var(--num); font-size: 11px; font-weight: 700; color: #C7D3F0; }
+
+    /* === 핵심: 위험도 결과 카드 (가장 크게·빨강 글로우) === */
+    .cd-risk {
+      position: relative; border-radius: 15px; overflow: hidden;
+      padding: 12px 13px 13px;
+      background:
+        radial-gradient(110% 80% at 50% 0%, rgba(239, 68, 68, 0.28), transparent 62%),
+        linear-gradient(165deg, #2A0E14 0%, #1A0A12 100%);
+      border: 1px solid rgba(239, 68, 68, 0.42);
+      box-shadow: 0 14px 32px rgba(239, 68, 68, 0.22), 0 0 0 3px rgba(239, 68, 68, 0.06);
+    }
+    .cd-risk .cd-risk-top { display: flex; align-items: center; gap: 7px; }
+    .cd-risk .cd-badge {
+      width: 24px; height: 24px; border-radius: 8px; flex: none;
+      display: grid; place-items: center; color: #fff; background: var(--danger);
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.5);
+    }
+    .cd-risk .cd-badge svg { width: 15px; height: 15px; }
+    .cd-risk .cd-risk-eyebrow { font-size: 8px; font-weight: 800; letter-spacing: 0.06em; color: #FCA5A5; }
+    .cd-risk .cd-risk-title { font-size: 17px; font-weight: 900; letter-spacing: -0.03em; color: #fff; line-height: 1.1; margin-top: 1px; }
+
+    .cd-risk .cd-gauge { margin: 11px 0 10px; }
+    .cd-risk .cd-gauge-top { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 5px; }
+    .cd-risk .cd-gauge-label { font-size: 8.5px; font-weight: 700; color: #F3C8C8; }
+    .cd-risk .cd-gauge-val { font-family: var(--num); font-size: 11px; font-weight: 800; color: #fff; }
+    .cd-risk .cd-gauge-val small { font-size: 8px; font-weight: 700; color: #E9A8A8; }
+    .cd-risk .cd-track {
+      height: 7px; border-radius: 999px; overflow: hidden;
+      background: rgba(255, 255, 255, 0.10);
+    }
+    .cd-risk .cd-fill {
+      height: 100%; width: 8%; border-radius: 999px;
+      background: linear-gradient(90deg, #F59E0B, var(--danger) 70%, #FF6B6B);
+      box-shadow: 0 0 10px rgba(239, 68, 68, 0.7);
+      transition: width 1.5s cubic-bezier(.2, .8, .2, 1);
+    }
+    .hero-visual.reveal .cd-risk .cd-fill { width: 90%; }
+
+    .cd-risk .cd-signals { display: flex; flex-direction: column; gap: 5px; margin-top: 2px; }
+    .cd-risk .cd-sig {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 9.5px; font-weight: 600; color: #FBE3E3;
+    }
+    .cd-risk .cd-sig .cd-sig-dot { width: 5px; height: 5px; border-radius: 50%; background: #F87171; flex: none; }
+    .cd-risk .cd-sig .cd-sig-txt { min-width: 0; }
+    .cd-risk .cd-sig .cd-chip {
+      margin-left: auto; font-weight: 800; font-size: 8px; letter-spacing: -0.01em;
+      padding: 2px 7px; border-radius: 999px; white-space: nowrap; flex: none;
+    }
+    .cd-risk .cd-sig .cd-chip.det { color: #FECACA; background: rgba(239, 68, 68, 0.22); border: 1px solid rgba(239, 68, 68, 0.4); }
+    .cd-risk .cd-sig .cd-chip.susp { color: #FCD9A8; background: rgba(245, 158, 11, 0.18); border: 1px solid rgba(245, 158, 11, 0.38); }
+
+    /* 하단 자동 보호 상태 */
+    .cd-foot {
+      margin-top: auto; display: flex; align-items: center; gap: 8px;
+      background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.10);
+      border-radius: 12px; padding: 8px 11px;
+    }
+    .cd-foot .cd-foot-ico { width: 22px; height: 22px; border-radius: 7px; flex: none; display: grid; place-items: center; color: #6EE7A8; background: rgba(22, 163, 74, 0.18); }
+    .cd-foot .cd-foot-ico svg { width: 13px; height: 13px; }
+    .cd-foot .cd-foot-txt { display: flex; flex-direction: column; gap: 1px; }
+    .cd-foot .cd-foot-txt b { font-size: 9.5px; font-weight: 800; color: #fff; }
+    .cd-foot .cd-foot-txt small { font-size: 8px; font-weight: 600; color: #9DB0E6; }
+    .cd-foot .cd-toggle {
+      margin-left: auto; width: 30px; height: 17px; border-radius: 999px; flex: none;
+      background: var(--ok); position: relative;
+    }
+    .cd-foot .cd-toggle::after {
+      content: ""; position: absolute; top: 2px; right: 2px;
+      width: 13px; height: 13px; border-radius: 50%; background: #fff;
+    }
+
+    /* 컨테이너가 좁아질 때(모바일 폰 200px) 폰트 한 단계 축소로 줄바꿈 방지 */
+    @container (max-width: 175px) {
+      .cd-risk .cd-risk-title { font-size: 15.5px; }
+      .cd-risk .cd-sig { font-size: 9px; }
+      .cd-call .cd-num b { font-size: 12px; }
+    }
+
     /* ===== Sample document illustrations (예시 문서 · 모든 값 더미/마스킹) ===== */
     /* 문서 사진 프레임: AI가 사진 속 개인정보를 찾아 하이라이트하는 모습 */
     .doc-shot {
@@ -791,8 +912,50 @@
               </div>
             </div>
           </div>
-          <div class="phone phone-front">
-            <div class="screen"><picture><source srcset="assets/hero-call.webp" type="image/webp" /><img src="assets/hero-call.png" alt="세이프가드 마케팅 화면 — 보이스피싱 의심 통화를 자동 감지해 위험도 결과 카드로 보여주는 예시" loading="eager" /></picture></div>
+          <!-- 메인 비주얼: 통화 디펜더 결과 화면 (CSS/SVG · 더미 데이터만 · 위험도 카드 크게) -->
+          <div class="phone phone-front" role="img" aria-label="세이프가드 통화 디펜더 예시 화면 — 통화 종료 후 보이스피싱 위험도를 분석해 '보이스피싱 매우 위험'으로 알려주는 결과 카드">
+            <div class="screen cd-screen">
+              <div class="cd-app" aria-hidden="true">
+                <div class="cd-head">
+                  <span class="cd-brand">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5l7.5 3v5.2c0 4.7-3.2 8.3-7.5 10.3-4.3-2-7.5-5.6-7.5-10.3V5.5L12 2.5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.6 12.2l2.3 2.3 4.5-4.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    통화 디펜더
+                  </span>
+                  <span class="cd-state"><span class="cd-dot"></span>분석 중</span>
+                </div>
+
+                <div class="cd-call">
+                  <span class="cd-avatar"><svg viewBox="0 0 24 24" fill="none"><path d="M3 5.5C3 4.7 3.7 4 4.5 4h2.7c.6 0 1.2.4 1.4 1l1 2.7c.2.5.1 1-.3 1.4l-1.3 1.3a12 12 0 005.6 5.6l1.3-1.3c.4-.4.9-.5 1.4-.3l2.7 1c.6.2 1 .8 1 1.4v2.7c0 .8-.7 1.5-1.5 1.5C9.6 21 3 14.4 3 6.5v-1z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+                  <span class="cd-num"><b>010-1234-5678</b><small>통화 종료 · 2분 14초</small></span>
+                  <span class="cd-dur">2:14</span>
+                </div>
+
+                <div class="cd-risk">
+                  <div class="cd-risk-top">
+                    <span class="cd-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l9 16H3l9-16z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M12 10v4M12 17h.01" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></span>
+                    <span><span class="cd-risk-eyebrow">통화 분석 결과</span><span class="cd-risk-title">보이스피싱 매우 위험</span></span>
+                  </div>
+                  <div class="cd-gauge">
+                    <div class="cd-gauge-top">
+                      <span class="cd-gauge-label">위험도 지수</span>
+                      <span class="cd-gauge-val">매우 높음 <small>90 / 100</small></span>
+                    </div>
+                    <div class="cd-track"><div class="cd-fill"></div></div>
+                  </div>
+                  <div class="cd-signals">
+                    <div class="cd-sig"><span class="cd-sig-dot"></span><span class="cd-sig-txt">검찰·금감원 사칭 의심 패턴</span><span class="cd-chip det">감지됨</span></div>
+                    <div class="cd-sig"><span class="cd-sig-dot"></span><span class="cd-sig-txt">안전계좌·계좌이체 요구</span><span class="cd-chip det">감지됨</span></div>
+                    <div class="cd-sig"><span class="cd-sig-dot"></span><span class="cd-sig-txt">긴급·압박 화법 다수 포함</span><span class="cd-chip susp">의심</span></div>
+                  </div>
+                </div>
+
+                <div class="cd-foot">
+                  <span class="cd-foot-ico"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5l7.5 3v5.2c0 4.7-3.2 8.3-7.5 10.3-4.3-2-7.5-5.6-7.5-10.3V5.5L12 2.5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span>
+                  <span class="cd-foot-txt"><b>자동 보호 켜짐</b><small>읽기 전용 · 통화 녹음 안 함</small></span>
+                  <span class="cd-toggle"></span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="float-chip c-risk" aria-hidden="true">
