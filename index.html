@@ -323,6 +323,153 @@
     .mock-btn.ghost { background: #fff; border: 1px solid var(--border); color: var(--text); }
     .mock-btn.solid { background: var(--danger); color: #fff; }
 
+    /* ===== Sample document illustrations (예시 문서 · 모든 값 더미/마스킹) ===== */
+    /* 문서 사진 프레임: AI가 사진 속 개인정보를 찾아 하이라이트하는 모습 */
+    .doc-shot {
+      position: relative; border-radius: 12px; overflow: hidden;
+      background: #0a1020; padding: 7px; box-shadow: 0 10px 22px rgba(13,27,78,.16);
+    }
+    .doc-shot.in-detail { margin: 2px 0 1px; }
+    .doc-card {
+      position: relative; border-radius: 8px; overflow: hidden;
+      aspect-ratio: 1.585; container-type: inline-size; color: var(--text);
+      box-shadow: 0 1px 0 rgba(255,255,255,.4) inset;
+    }
+    /* 문서별 지폐/플라스틱 느낌 배경 (실제 정부발급 문서의 정밀 복제가 아닌 양식 연상 일러스트) */
+    .doc-card.id     { background: linear-gradient(135deg, #EAF0FF 0%, #DCE6FF 55%, #CFE0FF 100%); }
+    .doc-card.pass   { background: linear-gradient(135deg, #EAF7EF 0%, #D9EFE2 60%, #CDEBD9 100%); }
+    .doc-card.card   { background: linear-gradient(120deg, #1B2A6B 0%, #2B5CF6 60%, #4F80FF 100%); color: #EAF0FF; aspect-ratio: 1.585; }
+    .doc-card.bank   { background: linear-gradient(135deg, #FFF6E8 0%, #FCEBCF 60%, #F8E0B8 100%); }
+    .doc-card.addr   { background: linear-gradient(180deg, #FFFFFF 0%, #F3F6FF 100%); aspect-ratio: 1.32; }
+    /* 워터마크: 실제 문서 오인 방지 (예시 · SAMPLE) */
+    .doc-card::after {
+      content: "예시 · SAMPLE"; position: absolute; inset: 0;
+      display: grid; place-items: center; pointer-events: none;
+      font-weight: 900; letter-spacing: .14em; font-size: 13cqw;
+      color: rgba(13,27,78,.10); transform: rotate(-16deg);
+      text-transform: none; white-space: nowrap;
+    }
+    .doc-card.card::after { color: rgba(255,255,255,.16); }
+    .doc-inner { position: absolute; inset: 0; padding: 6.5cqw 7cqw; display: flex; flex-direction: column; }
+    /* 상단 헤더 (발급기관 자리표시 — 실제 기관명 아님) */
+    .doc-hd { display: flex; align-items: center; gap: 5cqw; }
+    .doc-emblem {
+      width: 10cqw; height: 10cqw; border-radius: 50%; flex: none;
+      display: grid; place-items: center;
+      background: rgba(13,27,78,.10); color: var(--brand);
+    }
+    .doc-card.card .doc-emblem { background: rgba(255,255,255,.16); color: #fff; }
+    .doc-card.pass .doc-emblem { color: #15803D; background: rgba(21,128,61,.12); }
+    .doc-card.bank .doc-emblem { color: #B45309; background: rgba(180,83,9,.12); }
+    .doc-emblem svg { width: 6cqw; height: 6cqw; }
+    .doc-org { font-weight: 800; font-size: 4.6cqw; letter-spacing: -.02em; line-height: 1.15; }
+    .doc-org small { display: block; font-weight: 600; font-size: 3.1cqw; opacity: .62; letter-spacing: 0; }
+    .doc-tag-sample {
+      margin-left: auto; font-weight: 900; font-size: 3.2cqw; letter-spacing: .04em;
+      padding: 1cqw 2.4cqw; border-radius: 999px;
+      background: rgba(13,27,78,.10); color: var(--brand);
+    }
+    .doc-card.card .doc-tag-sample { background: rgba(255,255,255,.18); color: #fff; }
+    .doc-body { display: flex; gap: 5cqw; margin-top: 4cqw; flex: 1; align-items: flex-start; }
+    /* 인물 사진 자리 → 실루엣 아이콘 (얼굴 사진 금지) */
+    .doc-photo {
+      width: 22cqw; flex: none; aspect-ratio: 3/4; border-radius: 2cqw;
+      background: repeating-linear-gradient(135deg, rgba(13,27,78,.06) 0 4cqw, rgba(13,27,78,.11) 4cqw 8cqw);
+      display: grid; place-items: end center; overflow: hidden;
+      border: 1px solid rgba(13,27,78,.14);
+    }
+    .doc-photo svg { width: 18cqw; height: auto; color: rgba(13,27,78,.34); }
+    .doc-card.card .doc-photo, .doc-card.bank .doc-photo, .doc-card.addr .doc-photo { display: none; }
+    .doc-fields { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2.6cqw; }
+    .doc-field { line-height: 1.25; }
+    .doc-k { display: block; font-weight: 700; font-size: 2.9cqw; opacity: .6; letter-spacing: 0; }
+    .doc-v {
+      display: inline-block; font-weight: 800; font-size: 4cqw; letter-spacing: .02em;
+      font-family: var(--num);
+    }
+    .doc-v.kr { font-family: inherit; letter-spacing: -.01em; }
+    /* 검출 하이라이트: AI가 찾아낸 민감 필드 (빨간 박스 + 밑줄) */
+    .doc-v.hit {
+      position: relative; color: #B91C1C;
+      background: rgba(239,68,68,.13); border-radius: 1.4cqw;
+      padding: .3cqw 1.4cqw; box-shadow: 0 0 0 1.4px rgba(239,68,68,.85);
+      text-decoration: underline; text-decoration-color: rgba(239,68,68,.9);
+      text-decoration-thickness: .7cqw; text-underline-offset: 1.6cqw;
+    }
+    .doc-card.card .doc-v.hit { color: #FFE2E2; background: rgba(0,0,0,.28); box-shadow: 0 0 0 1.4px rgba(255,120,120,.95); text-decoration-color: rgba(255,150,150,.95); }
+    .doc-v.hit.warn {
+      color: #92400E; background: rgba(245,158,11,.18);
+      box-shadow: 0 0 0 1.4px rgba(245,158,11,.9);
+      text-decoration-color: rgba(245,158,11,.9);
+    }
+    /* 검출 배지 (필드 위에 떠 있는 라벨) */
+    .doc-hit-badge {
+      position: absolute; z-index: 4; transform: translateY(-118%);
+      display: inline-flex; align-items: center; gap: 1.2cqw;
+      font-weight: 900; font-size: 3cqw; letter-spacing: -.01em;
+      color: #fff; background: var(--danger); border-radius: 1.6cqw;
+      padding: 1cqw 2.2cqw; box-shadow: 0 3px 8px rgba(239,68,68,.4);
+      white-space: nowrap; pointer-events: none;
+    }
+    .doc-hit-badge svg { width: 3.2cqw; height: 3.2cqw; }
+    .doc-hit-badge.warn { background: #D97706; box-shadow: 0 3px 8px rgba(217,119,6,.4); }
+    /* 스캔 라인 (AI가 훑는 느낌 — 데코) */
+    .doc-scan {
+      position: absolute; left: 0; right: 0; height: 30%;
+      background: linear-gradient(180deg, transparent, rgba(43,92,246,.18) 70%, rgba(43,92,246,.34));
+      border-bottom: 1.6px solid rgba(43,92,246,.7);
+      mix-blend-mode: multiply; pointer-events: none;
+      animation: docscan 3.4s ease-in-out infinite;
+    }
+    .doc-card.card .doc-scan { mix-blend-mode: screen; }
+    /* 우상단 'AI 검출' 칩 */
+    .doc-aichip {
+      position: absolute; top: 5cqw; right: 5cqw; z-index: 5;
+      display: inline-flex; align-items: center; gap: 1.4cqw;
+      font-weight: 900; font-size: 3cqw; letter-spacing: -.01em;
+      color: #fff; background: rgba(13,27,78,.82); backdrop-filter: blur(2px);
+      border-radius: 999px; padding: 1.2cqw 2.6cqw;
+    }
+    .doc-aichip .dot { width: 2cqw; height: 2cqw; border-radius: 50%; background: #4ADE80; }
+    /* 주소 서류용 텍스트 라인 (문서 본문 느낌) */
+    .doc-lines { display: flex; flex-direction: column; gap: 2.2cqw; margin-top: 2cqw; }
+    .doc-line { height: 2.2cqw; border-radius: 999px; background: rgba(13,27,78,.10); }
+    .doc-line.w1 { width: 86%; } .doc-line.w2 { width: 64%; } .doc-line.w3 { width: 92%; } .doc-line.w4 { width: 48%; }
+
+    /* '분석 결과' 리스트 행: 어떤 사진에서 나왔는지 보이는 미니 썸네일 */
+    .mock-row.has-shot { grid-template-columns: auto 1fr auto; grid-template-areas: "shot type tag" "shot mask tag"; gap: 1px 8px; }
+    .mock-row .row-shot { grid-area: shot; align-self: center; display: block; }
+    .doc-mini {
+      display: block; position: relative; width: 34px; aspect-ratio: 1.585; border-radius: 5px; overflow: hidden;
+      box-shadow: 0 1px 4px rgba(13,27,78,.18); border: 1px solid rgba(13,27,78,.08);
+    }
+    .doc-mini::after {
+      content: ""; position: absolute; right: 2px; bottom: 2px;
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--danger); box-shadow: 0 0 0 1.5px #fff;
+    }
+    .doc-mini.warn::after { background: var(--warn); }
+    .doc-mini.id   { background: linear-gradient(135deg, #DCE6FF, #C3D4FF); }
+    .doc-mini.pass { background: linear-gradient(135deg, #D9EFE2, #BCE3CD); }
+    .doc-mini.card { background: linear-gradient(120deg, #1B2A6B, #4F80FF); }
+    .doc-mini.bank { background: linear-gradient(135deg, #FCEBCF, #F6DBA8); }
+    .doc-mini.addr { background: linear-gradient(180deg, #EEF2FF, #DCE4FF); }
+    .doc-mini svg { position: absolute; inset: 0; margin: auto; width: 15px; height: 15px; opacity: .8; }
+    .doc-mini.id svg, .doc-mini.addr svg { color: var(--brand); }
+    .doc-mini.pass svg { color: #15803D; }
+    .doc-mini.bank svg { color: #B45309; }
+    .doc-mini.card svg { color: #EAF0FF; }
+    @container (max-width: 180px) {
+      .doc-mini { width: 30px; }
+    }
+
+    @keyframes docscan {
+      0%   { top: -32%; opacity: 0; }
+      12%  { opacity: 1; }
+      88%  { opacity: 1; }
+      100% { top: 102%; opacity: 0; }
+    }
+
     /* trust box */
     .trust-box {
       margin-top: 30px; background: var(--surface); border: 1px solid var(--border);
@@ -554,6 +701,7 @@
       .hero-visual .phone-back { transform: translateY(-50%) rotate(-12deg) scale(.92); opacity: 1; }
       .hero-visual .phone-front { transform: translateY(-46%) rotate(2deg); opacity: 1; }
       .float-chip { opacity: 1 !important; }
+      .doc-scan { top: 0 !important; opacity: 1 !important; }
     }
   </style>
 </head>
@@ -752,9 +900,9 @@
             </ul>
           </div>
 
-          <!-- 비주얼: 실제 개인정보·신분증 이미지 없이 CSS/SVG로 그린 검출 결과 UI 목업 (모든 값 마스킹) -->
+          <!-- 비주얼: 실제 개인정보 없이 인라인 SVG/CSS로 그린 '더미 예시 문서 + AI 검출 하이라이트' (모든 값 더미/마스킹, SAMPLE 워터마크) -->
           <div class="split-visual reveal-up">
-            <div class="duo" role="img" aria-label="사진 개인정보 검출 결과 화면 예시 — 신분증·주민등록번호·카드번호 등 유형만 표시되고 실제 값은 모두 마스킹된 모습">
+            <div class="duo" role="img" aria-label="사진 개인정보 검출 화면 예시 — 더미 예시 문서(주민등록증 양식) 사진 위에 AI가 주민등록번호·이름을 빨간 박스로 찾아내고, 옆 화면에 신분증·여권·카드·계좌·주소 검출 목록이 표시된 모습. 모든 값은 예시용 더미이며 실제 개인정보가 아닙니다.">
               <div class="phone-static d-back" aria-hidden="true">
                 <div class="screen mock-screen">
                   <div class="mock-app">
@@ -762,19 +910,44 @@
                       <span class="mock-back">‹</span>
                       <span class="mock-title">검출 상세</span>
                     </div>
-                    <div class="mock-thumb">
-                      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.6"/><circle cx="8.5" cy="11" r="2" stroke="currentColor" stroke-width="1.6"/><path d="M13.5 9.5h4M13.5 13h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-                      <span class="mock-thumb-lock">
-                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M8 11V8a4 4 0 018 0v3" stroke="currentColor" stroke-width="1.7"/></svg>
-                      </span>
+                    <!-- 대표 예시 문서: 주민등록증(더미) — 사진 속 개인정보를 AI가 찾아 하이라이트 -->
+                    <div class="doc-shot in-detail">
+                      <div class="doc-card id">
+                        <span class="doc-aichip"><span class="dot"></span>AI 검출</span>
+                        <div class="doc-scan"></div>
+                        <div class="doc-inner">
+                          <div class="doc-hd">
+                            <span class="doc-emblem">
+                              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.5l7.5 3v5.2c0 4.7-3.2 8.3-7.5 10.3-4.3-2-7.5-5.6-7.5-10.3V5.5L12 2.5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+                            </span>
+                            <span class="doc-org">주민등록증<small>예시 양식 · 실제 발급 문서 아님</small></span>
+                            <span class="doc-tag-sample">SAMPLE</span>
+                          </div>
+                          <div class="doc-body">
+                            <span class="doc-photo">
+                              <svg viewBox="0 0 24 26" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="4.6" fill="currentColor"/><path d="M3 26c0-5 4-8.5 9-8.5s9 3.5 9 8.5z" fill="currentColor"/></svg>
+                            </span>
+                            <div class="doc-fields">
+                              <div class="doc-field">
+                                <span class="doc-k">성명</span>
+                                <span class="doc-v kr hit warn">홍길동<span class="doc-hit-badge warn"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l9 16H3l9-16z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9v4M12 16h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>이름 주의</span></span>
+                              </div>
+                              <div class="doc-field">
+                                <span class="doc-k">주민등록번호</span>
+                                <span class="doc-v hit">000000-0000000<span class="doc-hit-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l9 16H3l9-16z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9v4M12 16h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>주민등록번호 검출</span></span>
+                              </div>
+                              <div class="doc-field">
+                                <span class="doc-k">발급</span>
+                                <span class="doc-v kr">●● ●●●● · 0000.00.00</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <div class="mock-detail">
-                      <span class="mock-type">주민등록번호</span>
+                      <span class="mock-type">주민등록번호 · 빨간 박스에서 검출</span>
                       <span class="mock-mask big">●●●●●● - ●●●●●●●</span>
-                    </div>
-                    <div class="mock-detail">
-                      <span class="mock-type">전화번호</span>
-                      <span class="mock-mask big">●●● - ●●●● - ●●●●</span>
                     </div>
                     <div class="mock-actions col">
                       <span class="mock-btn ghost full">예약 삭제</span>
@@ -795,27 +968,32 @@
                       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l9 16H3l9-16z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 10v4M12 17h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
                       <span><b>5건</b> 노출 · 위험 4 · 주의 1</span>
                     </div>
-                    <div class="mock-row">
+                    <div class="mock-row has-shot">
+                      <span class="row-shot"><span class="doc-mini id" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.6"/><circle cx="8.5" cy="11" r="2" stroke="currentColor" stroke-width="1.6"/><path d="M13.5 9.5h4M13.5 13h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></span>
                       <span class="mock-type">신분증 · 주민등록번호</span>
                       <span class="mock-mask">●●●●●● - ●●●●●●●</span>
                       <span class="mock-tag d">위험</span>
                     </div>
-                    <div class="mock-row">
+                    <div class="mock-row has-shot">
+                      <span class="row-shot"><span class="doc-mini pass" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="5" y="3" width="14" height="18" rx="2.4" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9.5" r="2.6" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 16h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></span>
                       <span class="mock-type">여권번호</span>
                       <span class="mock-mask">M●●●●●●●●</span>
                       <span class="mock-tag d">위험</span>
                     </div>
-                    <div class="mock-row">
+                    <div class="mock-row has-shot">
+                      <span class="row-shot"><span class="doc-mini card" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2.2" stroke="currentColor" stroke-width="1.6"/><path d="M3 10h18" stroke="currentColor" stroke-width="1.6"/><path d="M6 14.5h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></span>
                       <span class="mock-type">카드번호</span>
                       <span class="mock-mask">●●●● - ●●●● - ●●●● - ●●●●</span>
                       <span class="mock-tag d">위험</span>
                     </div>
-                    <div class="mock-row">
+                    <div class="mock-row has-shot">
+                      <span class="row-shot"><span class="doc-mini bank" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 9.5L12 5l8 4.5" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M6 11v6M10 11v6M14 11v6M18 11v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M4 19h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></span>
                       <span class="mock-type">계좌번호</span>
                       <span class="mock-mask">●●● - ●●●●●● - ●●●●●</span>
                       <span class="mock-tag d">위험</span>
                     </div>
-                    <div class="mock-row">
+                    <div class="mock-row has-shot">
+                      <span class="row-shot"><span class="doc-mini addr warn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-6.5-5.5-6.5-10A6.5 6.5 0 0112 4.5 6.5 6.5 0 0118.5 11c0 4.5-6.5 10-6.5 10z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="11" r="2.2" stroke="currentColor" stroke-width="1.6"/></svg></span></span>
                       <span class="mock-type">주소</span>
                       <span class="mock-mask">●● ●●●● ●●●●●●</span>
                       <span class="mock-tag w">주의</span>
