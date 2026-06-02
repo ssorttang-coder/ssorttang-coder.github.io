@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# 네이버 검색 (Yeti)
+User-agent: Yeti
+Allow: /
+
+# 구글 검색
+User-agent: Googlebot
+Allow: /
+
+# 빙 검색
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://safeguard.ai.kr/sitemap.xml
