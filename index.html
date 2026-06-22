@@ -827,6 +827,164 @@
       .float-chip { opacity: 1 !important; }
       .doc-scan { top: 0 !important; opacity: 1 !important; }
     }
+    /* ===== 보호자 카카오 알림 (#guardian-alert) ===== */
+    .ga-pii { margin-top: 26px; background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 18px 20px; box-shadow: var(--shadow-card); }
+    .ga-pii-head { display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 700; color: var(--text); margin-bottom: 14px; }
+    .ga-pii-head .ga-pii-ico { width: 32px; height: 32px; border-radius: 9px; flex: none; display: grid; place-items: center; background: rgba(43, 92, 246, 0.10); color: var(--brand); }
+    .ga-pii-head .ga-pii-ico svg { width: 18px; height: 18px; }
+    .ga-pii-head .ga-zero { font-family: var(--num); color: var(--ok); font-weight: 800; }
+    .ga-pii-cols { display: grid; grid-template-columns: auto 1fr; gap: 12px 20px; align-items: start; }
+    .ga-pii-col { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+    .ga-pii-col.yes { padding-right: 20px; border-right: 1px solid var(--border); }
+    .ga-pii-label { width: 100%; font-size: 12px; font-weight: 700; color: var(--text-muted); }
+    .ga-pii-chip { display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; font-weight: 700; padding: 5px 11px; border-radius: 999px; white-space: nowrap; }
+    .ga-pii-chip svg { width: 12px; height: 12px; flex: none; }
+    .ga-pii-chip.ok { color: var(--ok); background: rgba(22, 163, 74, 0.10); border: 1px solid rgba(22, 163, 74, 0.22); }
+    .ga-pii-chip.x { color: #9A3412; background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.20); text-decoration: line-through; text-decoration-color: rgba(239, 68, 68, 0.55); }
+
+    .ga-stage { width: 100%; max-width: 380px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+    .ga-float-chip { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: var(--text); border-radius: 14px; padding: 11px 16px; box-shadow: var(--shadow-card); font-size: 13px; font-weight: 700; }
+    .ga-float-chip small { display: block; font-weight: 500; color: var(--text-muted); font-size: 11px; }
+    .ga-float-chip .ga-float-ico { width: 30px; height: 30px; border-radius: 9px; flex: none; display: grid; place-items: center; background: rgba(22, 163, 74, 0.12); color: var(--ok); }
+    .ga-float-chip .ga-float-ico svg { width: 17px; height: 17px; }
+
+    .ga-msg-card { width: 100%; max-width: 340px; background: #fff; border: 1px solid var(--border); border-radius: 18px; box-shadow: 0 22px 48px rgba(13, 27, 78, 0.18); overflow: hidden; }
+    .ga-msg-head { display: flex; align-items: center; gap: 9px; padding: 14px 16px 11px; }
+    .ga-msg-avatar { width: 36px; height: 36px; border-radius: 11px; flex: none; display: grid; place-items: center; background: linear-gradient(145deg, var(--brand-glow), var(--brand)); box-shadow: 0 4px 12px rgba(43, 92, 246, 0.45); }
+    .ga-msg-avatar svg { width: 19px; height: 19px; }
+    .ga-msg-from { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+    .ga-msg-from b { font-size: 14px; font-weight: 800; letter-spacing: -0.02em; color: var(--text); }
+    .ga-msg-from small { font-size: 11px; font-weight: 600; color: var(--text-muted); }
+    .ga-msg-time { margin-left: auto; font-size: 11.5px; font-weight: 700; color: var(--text-muted); }
+    .ga-msg-bubble { margin: 0 16px 16px; padding: 14px 15px; border-radius: 14px; background: var(--section-bg); border: 1px solid var(--border); }
+    .ga-msg-risk { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 800; color: var(--danger); background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.24); padding: 4px 10px; border-radius: 999px; margin-bottom: 10px; }
+    .ga-msg-risk svg { width: 13px; height: 13px; flex: none; }
+    .ga-msg-body { margin: 0 0 8px; font-size: 13.5px; line-height: 1.62; color: var(--text); }
+    .ga-msg-body:last-of-type { margin-bottom: 0; }
+    .ga-msg-body b { font-weight: 800; }
+    .ga-msg-meta { font-family: var(--num); font-weight: 700; color: var(--text-muted); }
+    .ga-msg-note { margin: 11px 0 0; padding-top: 10px; border-top: 1px solid var(--border); font-size: 11.5px; line-height: 1.55; color: var(--text-muted); }
+
+    @media (max-width: 560px) {
+      .ga-pii-cols { grid-template-columns: 1fr; gap: 14px; }
+      .ga-pii-col.yes { padding-right: 0; padding-bottom: 14px; border-right: none; border-bottom: 1px solid var(--border); }
+      .ga-msg-card { max-width: 100%; }
+    }
+
+    /* ============ Responsive 보강 (기존 980/560 쿼리 보완, 충돌 최소화) ============ */
+    @media (max-width: 980px) {
+      .hero-visual { min-height: 440px; }
+      .phone { width: 224px; }
+      .duo { min-height: 470px; }
+      .duo .phone-static { width: 208px; }
+    }
+
+    @media (max-width: 768px) {
+      .site-header .wrap { height: 56px; }
+      section { scroll-margin-top: 56px; }
+
+      .hero .wrap { padding-top: 48px; padding-bottom: 40px; }
+      .hero-visual { min-height: 410px; margin-top: 10px; }
+      .phone { width: 214px; }
+
+      .section-pad { padding: 64px 0; }
+      .sec-head { margin-bottom: 40px; }
+
+      .split, .trust-grid, .price-grid { gap: 32px; }
+
+      .duo { min-height: 450px; }
+      .duo .phone-static { width: 200px; }
+
+      .trust-notes { padding-left: 0; }
+      .trust-box { padding: 18px 18px; }
+
+      .price-card { padding: 28px 24px; }
+
+      .final-cta .wrap { padding: 64px 20px; }
+      .app-icon { width: 72px; height: 72px; margin-bottom: 20px; }
+      .app-icon svg { width: 40px; height: 40px; }
+    }
+
+    @media (max-width: 480px) {
+      .wrap { padding: 0 16px; }
+
+      .brand-mark { font-size: 16px; gap: 8px; }
+      .brand-logo { width: 26px; height: 26px; }
+      .brand-logo svg { width: 15px; height: 15px; }
+      .nav-cta { padding: 0 14px; min-height: 40px; font-size: 13.5px; }
+
+      .hero .wrap { padding-top: 36px; padding-bottom: 30px; gap: 8px; }
+      .hero-title { margin-bottom: 16px; }
+      .hero-sub { margin-bottom: 26px; }
+      .hero-badges { gap: 12px 16px; margin-top: 22px; }
+      .hbadge { font-size: 12.5px; }
+
+      .hero-visual { min-height: 372px; margin-top: 8px; }
+      .phone { width: 168px; padding: 8px; }
+      .phone-back { right: auto; left: 50%; transform: translate(-92%, -50%) rotate(-10deg) scale(.86); }
+      .phone-front { left: 50%; transform: translate(-8%, -46%) rotate(2deg); }
+      .float-chip { font-size: 11.5px; padding: 8px 10px; gap: 8px; }
+      .float-chip .ico { width: 26px; height: 26px; }
+      .float-chip.c-risk { left: 0; top: 8%; }
+      .float-chip.c-pii { right: 0; bottom: 8%; }
+
+      .section-pad { padding: 52px 0; }
+      .sec-head { margin-bottom: 34px; }
+      .split, .trust-grid, .price-grid { gap: 28px; }
+
+      .duo { min-height: 408px; }
+      .duo .phone-static { width: 168px; }
+      .duo .d-back { transform: translate(26%, -6%) rotate(6deg) scale(.9); }
+      .duo .d-front { transform: translate(-24%, 8%) rotate(-3deg); }
+
+      .phone-static { width: 218px; }
+      .trust-detail .phone-static { width: 210px !important; }
+
+      .trust-box { padding: 16px 16px; gap: 11px; }
+      .trust-box .t-ico { width: 32px; height: 32px; }
+      .trust-box p { font-size: 13.5px; }
+
+      .price-grid { gap: 20px; }
+      .price-card { padding: 24px 20px; }
+      .price-amount .pa-num { font-size: 32px; }
+      .price-card.plus .plus-shot { width: 100px; opacity: 0.7; }
+      .price-cta { padding: 14px 18px; }
+
+      table.compare th, table.compare td { padding: 10px 10px; font-size: 12px; }
+      table.compare tbody th { width: 33%; }
+
+      details.faq summary { padding: 16px 18px; font-size: 15px; }
+      details.faq .faq-a { padding: 0 18px 18px; }
+
+      .final-cta .wrap { padding: 52px 18px; }
+      .final-cta p { font-size: 15.5px; margin-bottom: 26px; }
+      .app-icon { width: 64px; height: 64px; }
+      .app-icon svg { width: 36px; height: 36px; }
+
+      footer.site-footer { padding: 36px 18px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .footer-links { gap: 14px 18px; font-size: 13.5px; }
+      .footer-links a { padding: 4px 0; }
+    }
+
+    @media (max-width: 380px) {
+      .hero-visual { min-height: 344px; }
+      .phone { width: 150px; }
+      .phone-back { transform: translate(-94%, -50%) rotate(-9deg) scale(.84); }
+      .phone-front { transform: translate(-6%, -46%) rotate(2deg); }
+      .float-chip { font-size: 11px; padding: 7px 9px; }
+      .float-chip small { display: none; }
+
+      .hero-title { font-size: 27px; }
+
+      .duo { min-height: 372px; }
+      .duo .phone-static { width: 150px; }
+      .duo .d-back { transform: translate(22%, -5%) rotate(6deg) scale(.9); }
+      .duo .d-front { transform: translate(-20%, 8%) rotate(-3deg); }
+
+      .phone-static { width: 200px; }
+      .price-amount .pa-num { font-size: 29px; }
+    }
   </style>
 
   <!-- 구조화 데이터 (JSON-LD) — 구글/네이버 리치 결과 대응 · 평점·리뷰 미포함(신규 앱) -->
@@ -1077,7 +1235,7 @@
 
           <div class="split-visual reveal-up">
             <div class="phone-static">
-              <div class="screen"><img src="assets/screen-call-defender.png" alt="통화 디펜더 메인 화면 — 자동 보호가 켜져 있고 읽기 전용·온디바이스·녹음 안 함 배지가 표시된 모습" loading="lazy" /></div>
+              <div class="screen"><img src="assets/screen-call-defender.png" alt="통화 디펜더 메인 화면 — 자동 보호가 켜져 있고 읽기 전용·온디바이스·녹음 안 함 배지가 표시된 모습" decoding="async" /></div>
             </div>
           </div>
         </div>
@@ -1091,6 +1249,91 @@
           <ul class="trust-notes">
             <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 8v4.5M12 16h.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg> 전화 앱의 <strong>'통화 자동 녹음'</strong> 설정이 켜져 있어야 분석할 녹음이 생깁니다.</li>
             <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 8v4.5M12 16h.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg> <strong>저장된 연락처(가족 등)와의 통화는 분석하지 않습니다</strong> — 모르는 번호 위주로 살펴봅니다.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 보호자 카카오 알림 (Plus · 통화 디펜더 연계) ===== -->
+    <section class="section-pad alt-bg" id="guardian-alert" aria-labelledby="ga-title">
+      <div class="wrap">
+        <div class="split">
+          <div class="split-copy reveal-up">
+            <span class="kicker plus">통화 디펜더 · 동의 기반</span>
+            <h2 class="sec-title" id="ga-title">위험 통화가 감지되면,<br/>가족 카톡으로 알려드려요</h2>
+            <p class="sec-lead">혼자 계신 부모님 전화가 걱정될 때 — 통화가 끝난 뒤 분석에서 보이스피싱 의심 신호가 보이면, 미리 등록·동의한 가족(보호자)에게 카카오톡 알림이 자동으로 전해집니다. 가족이 함께 한 번 더 살펴볼 수 있어요.</p>
+
+            <ul class="feature-list">
+              <li>
+                <span class="fi-ico"><svg viewBox="0 0 24 24" fill="none"><path d="M17 20v-1a4 4 0 00-4-4H7a4 4 0 00-4 4v1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="10" cy="8" r="3.2" stroke="currentColor" stroke-width="1.7"/><path d="M19.5 13.8A3.2 3.2 0 0019 7.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M21 20v-1a3.4 3.4 0 00-2.5-3.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+                <div><h4>가족이 함께 지켜요</h4><p>위험·심각으로 판단된 통화만 보호자에게 알림이 갑니다. 멀리 사는 가족도 “방금 그 전화, 괜찮으셨어요?” 하고 바로 확인할 수 있어요.</p></div>
+              </li>
+              <li>
+                <span class="fi-ico"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v5c0 4.4-3 7.7-8 9-5-1.3-8-4.6-8-9V7l8-4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12.2l2.1 2.1 4-4.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <div><h4>알림에 담기는 건 위험도와 시각뿐</h4><p>전화번호·통화 녹음·이름·계좌 — 어떤 개인정보도 담지 않습니다. ‘위험도 + 통화한 시각’이라는 최소한의 정보만 전해드려요.</p></div>
+              </li>
+              <li>
+                <span class="fi-ico"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <div><h4>동의한 보호자에게만</h4><p>알림 수신에 동의한 보호자에게만 발송되고, 보호자는 언제든 수신을 끌 수 있어요. 통화 디펜더(Plus)의 일부 기능입니다.</p></div>
+              </li>
+            </ul>
+
+            <div class="ga-pii reveal-up">
+              <div class="ga-pii-head">
+                <span class="ga-pii-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M8 10V7.5a4 4 0 018 0V10" stroke="currentColor" stroke-width="1.7"/></svg></span>
+                <span>알림에 담기는 개인정보 <b class="ga-zero">0건</b></span>
+              </div>
+              <div class="ga-pii-cols">
+                <div class="ga-pii-col yes">
+                  <span class="ga-pii-label">담는 정보</span>
+                  <span class="ga-pii-chip ok"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>위험도</span>
+                  <span class="ga-pii-chip ok"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>통화한 시각</span>
+                </div>
+                <div class="ga-pii-col no">
+                  <span class="ga-pii-label">담지 않는 정보</span>
+                  <span class="ga-pii-chip x"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>전화번호</span>
+                  <span class="ga-pii-chip x"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>통화 녹음</span>
+                  <span class="ga-pii-chip x"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>이름</span>
+                  <span class="ga-pii-chip x"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>계좌</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 비주얼: 보호자가 받는 알림 예시 (자체 스타일 · 카카오 공식 UI/로고 복제 아님 · '예시') -->
+          <div class="split-visual reveal-up">
+            <div class="ga-stage">
+              <span class="ga-float-chip">
+                <span class="ga-float-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l8 4v5c0 4.4-3 7.7-8 9-5-1.3-8-4.6-8-9V7l8-4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12.2l2.1 2.1 4-4.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span>알림에 개인정보 0건<small>위험도 · 시각만 전송</small></span>
+              </span>
+
+              <div class="ga-msg-card" role="img" aria-label="보호자에게 전송되는 알림 메시지 예시 — 세이프가드 발신, '보호 중인 가족의 통화에서 보이스피싱 의심 신호(위험도: 위험)가 감지됐어요. (23시 08분) 지금 전화해서 송금·계좌이체 등 금전 요구를 받았는지 확인해 주세요.' 본문이며, 동의한 보호자에게만 발송된다는 안내가 포함된 예시입니다. 개인정보는 담기지 않습니다.">
+                <div class="ga-msg-head" aria-hidden="true">
+                  <span class="ga-msg-avatar"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5l7.5 3v5.2c0 4.7-3.2 8.3-7.5 10.3-4.3-2-7.5-5.6-7.5-10.3V5.5L12 2.5z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.6 12.2l2.3 2.3 4.5-4.6" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ga-msg-from"><b>세이프가드 알림</b><small>보호자 알림 · 예시</small></span>
+                  <span class="ga-msg-time num">23:08</span>
+                </div>
+                <div class="ga-msg-bubble" aria-hidden="true">
+                  <span class="ga-msg-risk"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l9 16H3l9-16z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M12 10v4M12 17h.01" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>위험도: 위험</span>
+                  <p class="ga-msg-body">보호 중인 가족의 통화에서 <b>보이스피싱 의심 신호</b>가 감지됐어요. <span class="ga-msg-meta">(23시 08분)</span></p>
+                  <p class="ga-msg-body">지금 전화해서 <b>송금·계좌이체 등 금전 요구</b>를 받았는지 확인해 주세요.</p>
+                  <p class="ga-msg-note">※ 본 알림은 보이스피싱 의심 감지 알림 수신에 동의하신 보호자에게 발송됩니다.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 신뢰 고지 (통화 디펜더 trust-box 와 동일 패턴) -->
+        <div class="trust-box reveal-up" style="max-width: 980px; margin-left: auto; margin-right: auto; flex-direction: column;">
+          <div style="display:flex; gap:14px;">
+            <span class="t-ico"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 11v5M12 8h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <p>보호자 알림은 <strong>통화가 끝난 뒤 분석</strong>에서 위험·심각 신호가 보일 때 전해지는 <strong>참고용 안내</strong>입니다. 실시간으로 통화를 차단하지는 않아요. 알림에는 전화번호·녹취·이름·계좌 등 <strong>개인정보가 담기지 않으며</strong>, 위험도와 통화한 시각만 전해집니다. 의심되면 경찰 <strong>112</strong> · 금융감독원 <strong>1332</strong>로 직접 확인하세요.</p>
+          </div>
+          <ul class="trust-notes">
+            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 8v4.5M12 16h.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg> 보호자 알림은 <strong>알림 수신에 동의한 보호자</strong>에게만 발송되며, 보호자는 <strong>언제든 수신을 끌 수 있습니다.</strong></li>
+            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 8v4.5M12 16h.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg> 보호자 알림은 <strong>통화 디펜더(Plus)</strong>에서 제공되며, 통화 디펜더의 분석 조건(모르는 번호·통화 자동 녹음 켬)을 동일하게 따릅니다.</li>
           </ul>
         </div>
       </div>
@@ -1244,7 +1487,7 @@
         <div class="trust-grid">
           <div class="trust-detail reveal-up">
             <div class="phone-static" style="width: 248px; margin: 0 auto;">
-              <div class="screen"><img src="assets/screen-home.png" alt="홈 화면 — 사진 분석 현황(20장·위험 5건)과 통화 디펜더 자동 보호 켜짐이 함께 표시된 모습" loading="lazy" /></div>
+              <div class="screen"><img src="assets/screen-home.png" alt="홈 화면 — 사진 분석 현황(20장·위험 5건)과 통화 디펜더 자동 보호 켜짐이 함께 표시된 모습" decoding="async" /></div>
             </div>
             <ul class="trust-points">
               <li><span class="tp-check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>한국어 음성 인식(STT)을 <b>휴대폰 안</b>에서 처리 — 통화 내용은 외부로 전송되지 않습니다.</span></li>
@@ -1329,7 +1572,7 @@
           <!-- Plus -->
           <div class="price-card plus reveal-up">
             <div class="plus-shot" aria-hidden="true">
-              <img src="assets/screen-premium.png" alt="" loading="lazy" />
+              <img src="assets/screen-premium.png" alt="" decoding="async" />
             </div>
             <div class="price-tag-row">
               <h3>세이프가드 Plus</h3>
